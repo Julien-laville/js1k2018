@@ -1,0 +1,66 @@
+<body id=b style=margin:0>
+    <canvas id=a></canvas>
+    <script>
+    f = '#000'
+    g = '#ac2'
+    d = document;
+    c = a.getContext("2d") // context
+    w = a.width = innerWidth // width
+    h = a.height = innerHeight // height
+    s = 0 // score
+
+    /* jS1K2018 */
+    k=['R',114,10,5,   'D',100, 5,10,   'F',102,10,10,   'G',103,15,10] //rdfg code pos / 10
+    /* bpms=[115,130,140] NOT CORE GAME */
+ks={}
+
+d.onkeydown=({keyCode})=>{ks[keyCode]=1}
+d.onkeyup=({keyCode})=>{ks[keyCode]=0}
+
+   /* waited keys generator */
+    kw={}
+    w8 = Math.ceil(Math.random()*3)
+    for(i=1;i<=w8;i++) {
+        kw[k[Math.floor(Math.random()*4)*4+1]]=1
+        
+    }
+    console.log(kw)
+setInterval(() => { /* time time time */
+    a.width+=0 /* clear */
+    c.fillStyle=f
+  
+    
+    /* v-keys */
+    k.forEach((k0) => {
+        
+    })
+    for(i=0;i<4;i++) {
+        if(kw[k[i*4+1]]) { /* code */
+            c.fillRect(k[i*4+2]*10,k[i*4+3]*10,20, 1)
+        }
+        c.fillText(k[i*4],k[i*4+2]*10,k[i*4+3]*10) /* show letter */
+    }
+    
+    /* timer */
+    for(i=0;i<6;i++)
+        c.fillRect(((++s)+50*i)%300,0,5,20)
+    c.fillRect(280,0,20,20)
+    /* 
+    c.fillText(s++,0,0) NOT CORE GAMEPLAY
+    for(i=0;i<10;i++) {
+        for(j=0;i<10;j++) {
+            c.fillStyle = s%
+            c.fillRect(i*30,j*30,30,30)
+        }
+    }*/
+
+},33)
+
+
+
+/* closure compiler + regpack */
+/* https://www.youtube.com/watch?v=iBk8owuhNkQ */
+/* http://rangevoting.org/ColorCode.html */
+</script>
+
+
