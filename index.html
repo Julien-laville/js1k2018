@@ -37,14 +37,15 @@
         kw[k[Math.floor(Math.random()*4)*4+1]]=1
     }
     setInterval(() => { /* time time time */
+        s++
         a.width+=0 /* clear */
         for(i=0;i<10;i++) {
-        for(j=0;j<10;j++) {
-            c.fillStyle = s%120<60 ? ((i+j)%2==0 ? g : f) : ((i+j)%2==0 ? f : g)
-            c.fillRect(i*60,j*60,60,60)
+            for(j=0;j<10;j++) {
+                c.fillStyle = s%120<60 ? ((i+j)%2==0 ? g : f) : ((i+j)%2==0 ? f : g)
+                c.fillRect(i*60,j*60,60,60)
+            }
         }
-    }
-        c.fillStyle=f
+        c.fillStyle='#fff'
 
     
         
@@ -57,9 +58,10 @@
         }
         
         /* timer */
-        s++
+
         for(i=0;i<3;i++)
             c.fillRect((s*6+200*i)%600,0,5,20)
+            
         /* DEBUG */
         c.fillRect(560,0,20,20)
         caches.strokeStyle = f
